@@ -2,28 +2,28 @@ import 'package:first_flutter_appication/widget/bottom_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   late TabController controller;
-  final ThemeData theme = ThemeData();
+  final ThemeData theme = ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: Colors.black,
+  );
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Bigdeal Sample Netflix',
-      theme: theme.copyWith(
-        colorScheme: theme.colorScheme.copyWith(
-          primary: Colors.black,
-          secondary: Colors.white,
-          brightness: Brightness.dark,
-        ),
-      ),
+      theme: theme,
       home: DefaultTabController(
         length: 4,
         child: Scaffold(
